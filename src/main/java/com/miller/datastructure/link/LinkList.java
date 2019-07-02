@@ -49,14 +49,27 @@ public class LinkList {
                 previous = current;
                 current = current.next;
             }
-
         } // 找到了相应的节点，跳出while循环
         if(current == first) {
             first = first.next;
         }
         else {
-            previous.next = first.next;   // bypass it
+            previous.next = current.next;   // bypass it
         }
+        return current;
+    }
+
+    //查找一个节点
+    public Student findOne(long key) {
+        Student current = first;
+        while(current.getId() !=  key) {
+            if(current == null) {
+                return null;
+            }
+            else {
+                current = current.next;
+            }
+        } // 找到了相应的节点，跳出while循环
         return current;
     }
 
