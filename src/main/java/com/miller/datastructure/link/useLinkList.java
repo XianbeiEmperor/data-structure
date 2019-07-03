@@ -1,3 +1,4 @@
+/*
 package com.miller.datastructure.link;
 
 import java.util.LinkedList;
@@ -22,3 +23,4 @@ public class useLinkList {
         System.out.println(ret);
     }
 }
+*/

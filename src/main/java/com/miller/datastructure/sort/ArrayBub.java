@@ -66,7 +66,6 @@ public class ArrayBub {
         }
         int left = low;
         int right = high;
-
         //保存基准值
         int pivot = a[left];
         while (left < right) {
