@@ -185,7 +185,13 @@ public class ArrayBub {
         arrayBub.disPlay();*/
 
          int[] a = {2,6,7,8,9,4,1};
+         for(int i =0; i< a.length; i++) {
+             System.out.println("第" + i + "个数：" + a[i]);
+         }
          sort(a,0,6);
+        for(int i =0; i< a.length; i++) {
+            System.out.println("第" + i + "个数：" + a[i]);
+        }
     }
 //https://www.cnblogs.com/morethink/  八大排序算法的博客，写的很好，可以用作教学了。
     //https://www.cnblogs.com/morethink/p/8419151.html
