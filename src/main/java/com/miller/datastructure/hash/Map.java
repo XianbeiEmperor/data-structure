@@ -1,6 +1,7 @@
 package com.miller.datastructure.hash;
 
 import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 //哈希表怎么玩？
 /*
@@ -9,5 +10,9 @@ import java.util.HashMap;
 * 越分散，则以后查找的时间复杂度越小，空间复杂度越高
 * */
 public class Map {
+    //线程不安全的
     HashMap<String, Object> ret  = new HashMap<>();
+
+    //线程安全的
+    ConcurrentHashMap hashMap = new ConcurrentHashMap();
 }
