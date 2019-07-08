@@ -128,6 +128,24 @@ public class ArrayBub {
         }
     }
 
+    //希尔排序---增量式排序
+    public static void shellSort(int[] a) {
+        int length = a.length;
+        int h = 1;
+        while (h < length / 3) h = 3 * h + 1;
+        for (; h >= 1; h /= 3) {
+            for (int i = 0; i < a.length - h; i += h) {
+                for (int j = i + h; j > 0; j -= h) {
+                    if (a[j] < a[j - h]) {
+                        int temp = a[j];
+                        a[j] = a[j - h];
+                        a[j - h] = temp;
+                    }
+                }
+            }
+        }
+    }
+
     //基数排序   ---人家写的  体现分配和收集的过程
     public static void CardinalSort(int[] arr) {
         if (arr.length <= 1) return;

@@ -3,7 +3,8 @@ package com.miller.datastructure.link;
 public class Position {
     private int lineNum; //行号
     private int columnNum; //列号
-    private int nextPostionNum; //下一步可走方位的方向号
+    //每一个位置会有4个方向的邻近位置，上下左右 0，1，2，3
+    private int nextPostionNum; //下一步可走方位的方向号，该变量很重要，如果程序中不加利用，就会重复走某一个位置
 
     public Position() {
     }

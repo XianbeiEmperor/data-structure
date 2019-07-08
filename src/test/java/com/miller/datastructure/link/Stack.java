@@ -1,6 +1,9 @@
 package com.miller.datastructure.link;
 
+import org.junit.Test;
+
 import java.util.LinkedList;
+
 
 //请使用 LinkedList 模拟一个堆栈或队列的数据结构？
 //双向链表实现
@@ -22,12 +25,6 @@ public class Stack {
         return link.removeLast();
 
     }
-
-    //取出栈底的元素,这违背了栈的原则---先进后出
-    public Object orderPop() {
-        return link.pollFirst();
-    }
-
     //判断栈空
     public boolean isEmpty() {
         return link.isEmpty();
@@ -46,5 +43,21 @@ public class Stack {
         return link.getLast();
     }
 
+    @Test
+    public static void main(String[] args) {
+        Stack st = new Stack();
+        st.push(5);
+        st.push(6);
+        st.push(4);
+        Integer out = (Integer) st.pop();
+        System.out.println("出栈的元素是： " + out);
+        int size = st.getSize();
+        System.out.println("栈内的元素个数是： " + size);
+        st.push(3);
+        // st.topObject();
+        System.out.println("栈顶元素是： " +  st.topObject());
+        System.out.println("栈内的元素个数是： " + st.getSize());
+    }
 }
+
 
