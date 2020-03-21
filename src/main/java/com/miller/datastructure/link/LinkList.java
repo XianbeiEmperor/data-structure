@@ -9,6 +9,7 @@ public class LinkList {
     public void LinkList() {
         this.first = null;
     }
+
     //判断列表是不是空的
     public boolean isEmpty() {
         return (first == null);
@@ -16,7 +17,7 @@ public class LinkList {
 
 
     //新增一个节点
-    public void insertFirst(long id, String name , long phoneNumber) {
+    public void insertFirst(long id, String name, long phoneNumber) {
         Student student = new Student(id, name, phoneNumber);
         student.next = first;
         first = student;
@@ -25,7 +26,7 @@ public class LinkList {
 
     //新增一个节点， 直接传入节点对象
     public void insertFirst(Student student) {
-       // Student student = new Student(id, name, phoneNumber);
+        // Student student = new Student(id, name, phoneNumber);
         student.next = first;
         first = student;
     }
@@ -41,19 +42,17 @@ public class LinkList {
     public Student delete(long key) {
         Student current = first;
         Student previous = first;
-        while(current.getId() !=  key) {
-            if(current == null) {
+        while (current.getId() != key) {
+            if (current == null) {
                 return null;
-            }
-            else {
+            } else {
                 previous = current;
                 current = current.next;
             }
         } // 找到了相应的节点，跳出while循环
-        if(current == first) {
+        if (current == first) {
             first = first.next;
-        }
-        else {
+        } else {
             previous.next = current.next;   // bypass it
         }
         return current;
@@ -62,21 +61,25 @@ public class LinkList {
     //查找一个节点
     public Student findOne(long key) {
         Student current = first;
-        while(current.getId() !=  key) {
-            if(current == null) {
-                return null;
-            }
-            else {
-                current = current.next;
-            }
-        } // 找到了相应的节点，跳出while循环
+        try {
+            while (current.getId() != key) {
+                if (current == null) {
+                    return null;
+                } else {
+                    current = current.next;
+                }
+            } // 找到了相应的节点，跳出while循环
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+        }
         return current;
     }
 
     //遍历一个链表
     public void displayList() {
         Student current = first;
-        while(current != null) {
+        while (current != null) {
             current.dispalyStudent();
             current = current.next;
         }

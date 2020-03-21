@@ -15,4 +15,5 @@ public class Map {
 
     //线程安全的
     ConcurrentHashMap hashMap = new ConcurrentHashMap();
+
 }

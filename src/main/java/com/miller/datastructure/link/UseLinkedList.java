@@ -1,5 +1,7 @@
 package com.miller.datastructure.link;
 
+import com.sun.jmx.snmp.internal.SnmpSubSystem;
+
 import java.util.Collections;
 import java.util.LinkedList;
 
@@ -128,31 +130,49 @@ public class UseLinkedList {
                 }
                 if (maze[line][column] == 0) {
                     find = 1;
+                    System.out.println("入栈前nextPotion  =  " + nextPotion);
                 }
                //何时将nextPotion 再次设置成-1 ？
             }
             if (find == 1) {
+                if(nextPotion != -1) {
+                    Position aPosition = new Position(line, column, nextPotion);
+                    System.out.println("入栈的位置信息： " + nextPotion);
+                    System.out.println("入栈的位置记录： x =" +  aPosition.getLineNum() + " ,y= " + aPosition.getColumnNum() );
+                    stack.push(aPosition);
+                    maze[line][column] = -1;
+                }
 
-                Position aPosition = new Position(line, column, nextPotion);
-                System.out.println("入栈的位置记录： x =" +  aPosition.getLineNum() + " ,y= " + aPosition.getColumnNum() );
-                stack.push(aPosition);
-                maze[line][column] = -1;
-                find = 0;
                 nextPotion = -1;
+                find = 0;
                 System.out.println("已经入栈的位置： " +maze[line][column] );
             }
-            if(find == 0 ) {
+            if(find == 0 && (-1 != nextPotion )) {
                 //该位置已经搜索过，该路不同，标记，防止下一次在搜索该处   ---2019.07.08 miller modify
                 //maze[line][column] = -1;
                 //否则将栈顶元素弹出，修改对应位置的值  。///不应该修改回去
                 Position topElemnet = (Position) stack.topObject();
                 maze[topElemnet.getLineNum()][topElemnet.getColumnNum()] = 0;
-                System.out.println("退站的位置：" + topElemnet.getLineNum() + " ,y= " + topElemnet.getColumnNum());
+                System.out.println("退栈的位置：" +  "x= " + topElemnet.getLineNum() + " ,y= " + topElemnet.getColumnNum());
                 stack.pop();
+
             }
 
         }
-        System.out.println("没有可走的路径！");
+        //System.out.println("没有可走的路径！");
+        System.out.println("    へ　　　　　／|\n" +
+                "　　/＼7　　　 ∠＿/\n" +
+                "　 /　│　　 ／　／\n" +
+                "　│　Z ＿,＜　／　　 /`ヽ\n" +
+                "　│　　　　　ヽ　　 /　　〉\n" +
+                "　 Y　　　　　`　 /　　/\n" +
+                "　ｲ●　､　●　　⊂⊃〈　　/\n" +
+                "　()　 へ　　　　|　＼〈\n" +
+                "　　>ｰ ､_　 ィ　 │ ／／\n" +
+                "　 / へ　　 /　ﾉ＜| ＼＼\n" +
+                "　 ヽ_ﾉ　　(_／　 │／／\n" +
+                "　　7　　　　　　　|／\n" +
+                "　　＞―r￣￣`ｰ―＿");
     }
 }
 

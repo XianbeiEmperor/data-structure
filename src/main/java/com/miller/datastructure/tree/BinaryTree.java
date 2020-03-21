@@ -289,5 +289,9 @@ public class BinaryTree {
     }
 
     //图解红黑树  网址 http://www.360doc.com/content/18/0904/19/25944647_783893127.shtml
+
+
+    //哈夫曼树
+
 }
 

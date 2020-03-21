@@ -6,11 +6,30 @@ import lombok.Data;
 public class Student {
     private long id;
 
+
     private String name;
 
     private long phoneNumber;
     //自引式
     public Student next;
+
+    public String phone;
+
+    public Student getNext() {
+        return next;
+    }
+
+    public void setNext(Student next) {
+        this.next = next;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
     public Student(long id, String name, long phoneNumber) {
         this.id = id;
@@ -22,6 +41,7 @@ public class Student {
         return id;
     }
 
+    //<editor-fold desc="备用代码 冯振彪">
     public void setId(long id) {
         this.id = id;
     }
@@ -29,6 +49,7 @@ public class Student {
     public String getName() {
         return name;
     }
+    //</editor-fold>
 
     public void setName(String name) {
         this.name = name;
@@ -43,7 +64,7 @@ public class Student {
     }
 
     public void dispalyStudent() {
-        System.out.println( "Student{" +
+        System.out.println("Student{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", phoneNumber=" + phoneNumber +

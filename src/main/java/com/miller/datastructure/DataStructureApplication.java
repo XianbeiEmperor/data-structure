@@ -1,31 +1,32 @@
 package com.miller.datastructure;
 
-import com.miller.datastructure.link.LinkList;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.util.LinkedList;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 
 @SpringBootApplication
 public class DataStructureApplication {
 
+
     public static void main(String[] args) {
         SpringApplication.run(DataStructureApplication.class, args);
-        LinkList oneList = new LinkList();
-        oneList.insertFirst(1,"张飞",112356);
-        oneList.insertFirst(2,"关羽",112336);
-        oneList.insertFirst(3,"刘备",122356);
-        oneList.displayList();
-        System.out.println("找到的某个元素： " + oneList.findOne(1).toString());
-        oneList.delete(1);
-        oneList.displayList();
 
-        //java中已经实现的链表
-        LinkedList<String> linkedList = new LinkedList<>();
-        linkedList.add("fengzhenbiao");
-        linkedList.add("miller");
-        boolean ret =  linkedList.contains("miller");
-        System.out.println(ret);
+        try {
+            LocalDateTime localDateTime3 = LocalDateTime.now();
+            localDateTime3.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+            System.out.println(localDateTime3.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        LocalDateTime now = LocalDateTime.now(ZoneOffset.UTC);
+        System.out.println(now);
     }
+
+
+
+
 
 }
